@@ -1,0 +1,49 @@
+/* 공통사항 */
+.wrap {
+	width: 100%;
+	max-width: 1170px;
+	margin: 0 auto;
+}
+
+/* Header */
+.top-banner {
+	background-color: #ffe8e8;
+	position: relative;
+	text-align: center;
+	color: #b05d5d;
+	font-size: 0.75rem;
+	padding: 0.5rem 0;
+}
+.top-banner .fa-times {
+	float: right;
+	margin-top: 0.2rem;
+	cursor: pointer;
+}
+.top-icons {
+	display: flex;
+	justify-content: flex-end;
+	align-content: center;
+	font-size: 0.75rem;
+}
+.langs {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.langs * {
+	padding-right: 0.25rem;
+}
+.langs > ul {
+	position: absolute;
+	background-color: #fff;
+	padding: 0.5rem;
+	top: 18px;
+}
+.langs > ul > li {
+	display: flex;
+	padding: 0.25rem 0;
+	align-items: center;
+}
+.langs img {
+	width: 18px;
+}
