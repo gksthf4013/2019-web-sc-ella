@@ -24,26 +24,79 @@
 	justify-content: flex-end;
 	align-content: center;
 	font-size: 0.75rem;
+	padding: 1rem 0;
 }
-.langs {
+.top-icons > div {
+	margin-left: 1rem;
+}
+.langs, .currency {
 	position: relative;
 	display: flex;
 	align-items: center;
 }
-.langs * {
+.langs *, .currency * {
 	padding-right: 0.25rem;
 }
-.langs > ul {
+.langs .fa-angle-down, .currency .fa-angle-down {
+	color: #666;
+}
+.langs > ul, .currency > ul {
 	position: absolute;
 	background-color: #fff;
 	padding: 0.5rem;
 	top: 18px;
+	display: none;
 }
-.langs > ul > li {
+.langs > ul > li, .currency > ul > li {
 	display: flex;
 	padding: 0.25rem 0;
 	align-items: center;
 }
-.langs img {
+.langs img, .currency img {
 	width: 18px;
+}
+.schs {
+	background-color: #f1f1f1;
+	padding: 0.25rem;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+}
+.schs input {
+	width: 150px;
+	background-color: transparent;
+	outline-color: transparent;
+	padding-left: 0.5rem;
+}
+.schs button {
+	padding: 0 0.5rem;
+	background-color: transparent;
+	outline-color: transparent;
+}
+.sch-layer {
+	width: 350px;
+	padding: 1rem;
+	border: 1px solid #eee;
+	background-color: #fff;
+	position: absolute;
+	right: 0;
+	top: 30px;
+}
+.sch-layer .tit {
+	color: #333;
+	padding: 0.25rem 0;
+	border-bottom: 1px solid #ccc;
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+.sch-layer .tags {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+.sch-layer .tag {
+	padding: 0.5rem 0.35rem;
+	background-color: #eee;
+	color: #aaa;
+	margin: 0.5rem;
 }
