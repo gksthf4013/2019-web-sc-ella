@@ -218,8 +218,8 @@ margin-left: 1rem;
 	position: absolute; 
 	left: 0; 
 	top: 43px; 
-
 	color: #333;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .top-navis .subs .underbar:after {
@@ -330,15 +330,19 @@ margin-left: 1rem;
 	padding: 0.25rem 0;
 }
 
-.sub-ad2 .prd-banner {
+.sub-ad2 .prd-banner,
+.sub-ad3 .prd-banner {
 	overflow: hidden;
 }
-.sub-ad2 .prd-banner > img {
+.sub-ad2 .prd-banner > img,
+.sub-ad3 .prd-banner > img {
 	transition: all 1s;
 }
-.sub-ad2 .prd-banner:hover > img {
+.sub-ad2 .prd-banner:hover > img,
+.sub-ad3 .prd-banner:hover > img {
 	transform: scale(1.2);
 }
+
 .grid-card {
 	display: flex; 
 	justify-content: space-between; 
@@ -358,4 +362,64 @@ margin-left: 1rem;
 .grid-card .sub-navi {
 	padding: 0.25rem 0; 
 	font-weight: normal;
+}
+
+.subs-local {
+	width: 200px !important;
+}
+.subs-local > * {
+	padding: 0.75rem 0;
+}
+.subs-local > :not(:last-child) {
+	border-bottom: 1px solid #eee;
+}
+
+.grid-masonry {
+	display: flex; 
+	justify-content: space-between;
+}
+.grid-masonry > .sub-navi {
+	width: 800px; 
+
+	flex-wrap: wrap; 
+	align-items: flex-start;
+}
+.grid-masonry > .sub-navi > ul {
+	margin-bottom: 2rem;
+}
+.grid-masonry > .sub-navi > ul > li {
+	padding-bottom: 0.5rem;
+}
+
+.grid-sizer,
+.grid-item {
+	width: 25%;
+}
+
+/* 메인배너 */
+.main-bans {
+	position: relative;
+}
+.main-ban {
+	position: relative;
+}
+.main-bans > .pager-prev,
+.main-bans > .pager-next {
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	border: 2px solid #999;
+	border-radius: 50%;
+	color: #999;
+	font-size: 3rem;
+	line-height: 76px;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.main-bans > .pager-prev {
+	left: 10%;
+}
+.main-bans > .pager-next {
+	right: 10%;
 }
