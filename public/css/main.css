@@ -67,6 +67,26 @@ body {
 	background-color: #111;
 }
 
+/* 제목에 라인주기 */
+.line-tit {
+	border-bottom: 1px solid #ccc;
+	font-size: 1.25rem;
+	text-align: center;
+	font-weight: 900;
+}
+.line-tit > span {
+	background-color: #fff;
+	display: inline-block;
+	padding: 0 20px;
+	transform: translateY(50%);
+}
+.line-slogan {
+	text-align: center;
+	font-size: 0.75rem;
+	color: #666;
+	margin-top: 1.75rem;
+}
+
 /* common-items */
 .common-items {
 	display: flex;
@@ -1027,4 +1047,9 @@ body {
 .choice-navi.active {
 	color: #111;
 	border-bottom: 2px solid #111;
+}
+
+/* POSTS */
+.posts {
+	margin-top: 5rem;
 }
