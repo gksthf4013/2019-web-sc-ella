@@ -17,7 +17,6 @@ $("#bt-top-close").click(function(){
 	$(".top-banner").stop().slideUp(300);
 	var d = new Date();
 	d.setTime(d.getTime() + 10*60*1000); // 10분동안 cookie 유지
-	console.log(d);
 	$.cookie("top-banner-close", true, {expires: d});
 });
 
