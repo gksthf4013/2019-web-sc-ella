@@ -31,6 +31,49 @@ $(".sel-top li").click(function(){
 	$(this).parent().prev().trigger("click");
 });
 
+// 메인 네비게이션
+$(".navi-under").mouseenter(function(){
+	$(this).find(".subs").css({
+		"visibility":"visible"
+	}).stop().animate({
+		"top": "43px",
+		"opacity": 1
+	}, 300);
+});
+$(".navi-under").mouseleave(function(){
+	$(this).find(".subs").stop().animate({
+		"top": "143px",
+		"opacity": 0
+	}, 300, function(){
+		$(this).css({
+			"visibility":"hidden"
+		});
+	});
+});
+$(".navi-show").mouseenter(function(){
+	$(this).find(".subs").css({
+		"visibility":"visible"
+	}).animate({
+		"opacity": 1
+	}, 300);
+});
+$(".navi-show").mouseleave(function(){
+	$(this).find(".subs").animate({
+		"opacity": 0
+	}, 300, function(){
+		$(this).css({
+			"visibility":"hidden"
+		});
+	});
+});
+
+// 배너 - (fade, slide(전체), slide(하나씩), slide(세로))
+
+
+
+
+
+
 
 
 

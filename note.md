@@ -1,5 +1,7 @@
 # 수업내용 필기
 
+## 2019.10.17(목)
+
 ### ella - express-generator
 ```
 var createError = require('http-errors'); 
@@ -33,4 +35,15 @@ slideToggle() = 슬라이드 효과를 넣고 빼고의 효과를 넣을 수 있
 toggleClass("fa-angle-down fa-angle-up") 이와 같은 경우,
 fa-angle-down이 있으면 없앤 후 fa-angle-up을 넣어주고, 
 fa-angle-up이 있으면 없앤 후 fa-angle-down을 넣어준다.
+```
+
+## 2019.10.18(금)
+
+### ella - 전날 복습
+```
+.attr("src"); = 이미지를 가져올 때는 src만 입력하고,
+.attr("src", "../img/a.jpg"); = 이미지를 바꿀 때는 두개를 써줘야 한다.
+
+$(this).parent().prev().trigger("click");
+= 나의 부모의 전에 있는것에 click이라는 trigger를 준다.
 ```
