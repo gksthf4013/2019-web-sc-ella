@@ -8,7 +8,7 @@
 	overflow: hidden;
 }
 .banners { /* 움직일 놈 */
-	width: 3600px;
+	width: 4320px;
 	display: flex;
 	position: relative;
 }

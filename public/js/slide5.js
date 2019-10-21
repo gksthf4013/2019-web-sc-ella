@@ -1,5 +1,22 @@
+/* 변수 타입 
+primitive type: Number(0 == false),
+ String("" == false),
+	Boolean,
+	undefind == false,
+	null == false,
+	[], {} == true
+refernce type: Array, Object
+const a = 5;
+a = 10; // Error
+const b = [];
+b[1] = 10; // No Error
+b = [1, 2, 3]; // Error
+*/
+
+
 // 전역변수
 var now = 0;
+var interval;
 
 // 이벤트
 $(".bt-prev").click(function(){
@@ -17,10 +34,22 @@ $(".pager").click(function() {
 	init();
 });
 
+// interval CallBack
+function intervalCb() {
+	if(now == 5) {
+		now = 1;
+		pagerInit();btInit():
+		$(".banners").css("left", 0);
+	}
+	else now++;
+	ani();
+}
+
 // 동작
 // 시작할 때 한번 실행
 (function () {
 	pagerInit();
+	interval = setInterval(intervalCb, 2000);
 })();
 function init() {
 	ani();
@@ -37,6 +66,7 @@ function ani(){
 
 // 버튼 정렬
 function btInit() {
+	now = now == 5 ? 0: now;
 	if(now == 0) {
 		$(".bt-prev").hide();
 		$(".bt-next").show();
@@ -53,6 +83,7 @@ function btInit() {
 
 // 페이저 정렬
 function pagerInit() {
+	now = now == 5 ? 0: now;
 	$(".pager").removeClass("active");
 	$(".pager").eq(now).addClass("active");
 }
