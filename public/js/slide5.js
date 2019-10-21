@@ -1,10 +1,10 @@
 /* 변수 타입 
-primitive type: Number(0 == false),
- String("" == false),
-	Boolean,
-	undefind == false,
-	null == false,
-	[], {} == true
+primitive type: 
+	Number(0 == false), 
+	String("" == false), 
+	Boolean, 
+	undefined == false, 
+	null == false
 refernce type: Array, Object
 const a = 5;
 a = 10; // Error
@@ -12,7 +12,6 @@ const b = [];
 b[1] = 10; // No Error
 b = [1, 2, 3]; // Error
 */
-
 
 // 전역변수
 var now = 0;
@@ -23,54 +22,50 @@ $(".bt-prev").click(function(){
 	if(now > 0) now--;
 	init();
 }).hide();
-
 $(".bt-next").click(function(){
 	if(now < 4) now++;
 	init();
 });
-
-$(".pager").click(function() {
+$(".pager").click(function(){
 	now = $(this).index();
 	init();
 });
-
-// interval CallBack
+// Interval CallBack
 function intervalCb() {
-	if(now == 5) {
-		now = 1;
-		pagerInit();btInit():
-		$(".banners").css("left", 0);
-	}
-	else now++;
-	ani();
+	now++;
+	init();
 }
 
-// 동작
+
+/* 동작 */
 // 시작할 때 한번 실행
 (function () {
 	pagerInit();
 	interval = setInterval(intervalCb, 2000);
 })();
+// 이벤트 발생할 때 실행할 함수
 function init() {
 	ani();
 	btInit();
 	pagerInit();
 }
-
-// 이벤트 발생할 때 실행할 함수
-function ani(){
-	$(".banners").stop().animate({
-		"left": (-720*now)+"px"
-	}, 500);
-};
-
+// 애니메이션
+function ani() {
+	$(".banners").stop().animate({"left": (-720*now)+"px"}, 500, function(){
+		if(now == 5) {
+			now = 0;
+			$(".banners").css("left", 0);
+			pagerInit();
+			btInit();
+		}
+	});
+}
 // 버튼 정렬
 function btInit() {
-	now = now == 5 ? 0: now;
 	if(now == 0) {
 		$(".bt-prev").hide();
 		$(".bt-next").show();
-	} 
+	}
 	else if(now == 4) {
 		$(".bt-prev").show();
 		$(".bt-next").hide();
@@ -80,10 +75,8 @@ function btInit() {
 		$(".bt-next").show();
 	}
 }
-
 // 페이저 정렬
 function pagerInit() {
-	now = now == 5 ? 0: now;
 	$(".pager").removeClass("active");
 	$(".pager").eq(now).addClass("active");
 }
