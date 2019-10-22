@@ -47,3 +47,8 @@ fa-angle-up이 있으면 없앤 후 fa-angle-down을 넣어준다.
 $(this).parent().prev().trigger("click");
 = 나의 부모의 전에 있는것에 click이라는 trigger를 준다.
 ```
+
+## 2019.10.22(화)
+```
+onreadystatechange = 이벤트 속성(값이 변화가 되면)
+```
