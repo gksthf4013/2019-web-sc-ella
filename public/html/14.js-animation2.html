@@ -11,23 +11,11 @@
 </head>
 <body>
 	<div class="box"></div>
+	<div class="box2"></div>
+	<script src="../js/hansol.animation.1.0.0.js"></script>
 	<script>
-		// Easing - 갈놈 = 갈놈 + (목표값 - 갈놈) * 0.5(1보다 작은 수)
-	var dist = 700;
-	var frameDist = 700/50; // 14
-	var pos = 50;
-	var item = document.querySelector(".box");
-	var interval = setInterval(ani, 10);
-	function ani() {
-		if(pos <= 700 - 2) {
-			pos += (dist - pos) * 0.05;
-			item.style.left = pos + "px";
-		}
-		else {
-			clearInterval(interval);
-			item.style.left = dist + "px";
-		}
-	}
+		var ani = new AniEasy({elem: ".box"});
+		ani.animate({"left": "700px"}, 500);
 	</script>
 </body>
 </html>
