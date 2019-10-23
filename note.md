@@ -62,4 +62,5 @@ BOM = Browser Object Model
 
 document.querySelectorAll(".banner")[0].cloneNode(true);
 = 문자열 html이 아니라 DOM이다
+= .addEventListener()를 가지고 있지 않다
 ```

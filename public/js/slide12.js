@@ -26,7 +26,7 @@ function slideInit() {
 			html[0] += '<img src="'+res.slides[i].src+'" alt="'+res.slides[i].desc+'" class="banner-img">';
 			html[0] += '<h2 class="banner-cont">'+res.slides[i].desc+'</h2>';
 			html[0] += '</li>';
-			html[1] += '<div class="pager">●</div>';
+			html[1] += '<div class="pager" data-idx="'+i+'">●</div>';
 		}
 		document.querySelector(".banners").innerHTML = html[0];
 		document.querySelector(".pagers").innerHTML = html[1];
@@ -39,22 +39,26 @@ function slideInit() {
 
 // 이벤트
 function startInit() {
-	$(".bt-prev").click(function(){
+	document.querySelector(".bt-prev").style.display = "none";
+	document.querySelector(".bt-prev").addEventListener("click", function(){
 		if(now > 0) now--;
 		init();
-	}).hide();
-	$(".bt-next").click(function(){
+	});
+	document.querySelector(".bt-next").addEventListener("click", function(){
 		if(now < 4) now++;
 		init();
 	});
-	$(".pager").click(function(){
-		now = $(this).index();
-		init();
+	document.querySelectorAll(".pager").forEach(function(item, key){
+		item.addEventListener("click", function(){
+			now = this.dataset["idx"];
+			init();
+		});
 	});
-	$(".banners-wrap").mouseover(function(){
+	
+	document.querySelector(".banners-wrap").addEventListener("mouseover", function(){
 		clearInterval(interval);
 	});
-	$(".banners-wrap").mouseleave(function(){
+	document.querySelector(".banners-wrap").addEventListener("mouseleave", function(){
 		clearInterval(interval);
 		interval = setInterval(intervalCb, 2000);
 	});
@@ -88,21 +92,23 @@ function ani() {
 // 버튼 정렬
 function btInit() {
 	if(now == 0) {
-		$(".bt-prev").hide();
-		$(".bt-next").show();
+		document.querySelector(".bt-prev").style.display = "none";
+		document.querySelector(".bt-next").style.display = "block";
 	}
 	else if(now == 4) {
-		$(".bt-prev").show();
-		$(".bt-next").hide();
+		document.querySelector(".bt-prev").style.display = "block";
+		document.querySelector(".bt-next").style.display = "none";
 	}
 	else {
-		$(".bt-prev").show();
-		$(".bt-next").show();
+		document.querySelector(".bt-prev").style.display = "block";
+		document.querySelector(".bt-next").style.display = "block";
 	}
 }
 // 페이저 정렬
 function pagerInit() {
-	$(".pager").removeClass("active");
-	$(".pager").eq(now).addClass("active");
+	document.querySelectorAll(".pager").forEach(function(item, key){
+		if(key == now) item.classList.add("active");
+		else item.classList.remove("active");
+	});
 }
 
