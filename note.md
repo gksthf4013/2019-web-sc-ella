@@ -52,3 +52,14 @@ $(this).parent().prev().trigger("click");
 ```
 onreadystatechange = 이벤트 속성(값이 변화가 되면)
 ```
+
+## 2019.10.23(수)
+```
+document.querySelectorAll(".banners") = 배열
+
+DOM = Document Object Model
+BOM = Browser Object Model
+
+document.querySelectorAll(".banner")[0].cloneNode(true);
+= 문자열 html이 아니라 DOM이다
+```
