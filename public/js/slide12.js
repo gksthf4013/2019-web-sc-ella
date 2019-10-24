@@ -6,7 +6,7 @@ var delay = 2000;
 var cnt = 0;	// Ajax으로 가져온 슬라이드 갯수
 var html = ["", ""];
 var ajax = new XMLHttpRequest();
-var aniEasy = new AniEasy({elem: ".banners"});
+var aniEasy = new AniEasy(".banners");
 
 // 시작
 ajax.onreadystatechange = slideInit; // CallBack Init
@@ -81,7 +81,7 @@ function init() {
 }
 // 애니메이션
 function ani() {
-	aniEasy.animate({"left": (-720*now)+"px"}, 500, function(){
+	aniEasy.animate({"left": (-720*now)+"px"}, function(){
 		if(now == 5) {
 			now = 0;
 			document.querySelector(".banners").style.left = 0;
@@ -113,3 +113,6 @@ function pagerInit() {
 	});
 }
 
+
+// getComputedStyle(dom);
+var bannersCss = getComputedStyle(document.querySelector(".banners"));
