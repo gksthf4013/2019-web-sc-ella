@@ -31,6 +31,13 @@ $(".sel-top li").click(function(){
 	$(this).parent().prev().trigger("click");
 });
 
+// Search
+$(".sch-txt").click(function(e){
+	e.stopPropagatio();
+	$(".sch-layer").show();
+});
+
+
 // 메인 네비게이션
 $(".navi-under").mouseenter(function(){
 	$(this).find(".subs").css({

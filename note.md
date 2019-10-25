@@ -64,3 +64,18 @@ document.querySelectorAll(".banner")[0].cloneNode(true);
 = 문자열 html이 아니라 DOM이다
 = .addEventListener()를 가지고 있지 않다
 ```
+
+## 2019.10.25(금)
+```
+$(".sch-txt").click(function(e){
+	e.stopPropagatio(); = 이벤트가 나한테서만 딱 멈춘다 내 상위에 있는 놈들은 클릭이 안된다.
+	$(".sch-layer").show();
+});
+
+window.addEventListener("wheel", function(){
+	console.log(event.deltaY);
+});
+event.deltaY = event 안에 있는 deltaY의 휠 움직임에 따른 거리값
+
+event.preventDefault(); = 이벤트의 기본 기능을 막아준다
+```
