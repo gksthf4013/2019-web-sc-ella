@@ -1,36 +1,10 @@
-html, body {
-	height: 100%;
-}
-body {
-	overflow: hidden;
-}
-.wrap {
-	height: 100%;
-}
-.page {
-	height: 100%;
-	position: relative;
-}
-nav {
-	z-index: 9999;
-}
-.page .page-tit {
-	transform: translate(-50%, -50%);
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	color: #fff;
-	font-size: 3rem;
-}
-.page1 {
-	background-color: #ddad34;
-}
-.page2 {
-	background-color: #209fda;
-}
-.page3 {
-	background-color: #da2048;
-}
-.page4 {
-	background-color: #20da93;
-}
+html, body {height: 100%;}
+body {overflow: hidden;}
+.wrap {height: 100%;}
+.page {height: 100%; position: relative;}
+nav {z-index: 9999;}
+.page .page-tit {transform: translate(-50%, -50%); position: absolute; left: 50%; top: 50%; color: #fff; font-size: 3rem;}
+.page1 {background-color: #78d2f0;}
+.page2 {background-color: #8cbe6a;}
+.page3 {background-color: #ae63b1;}
+.page4 {background-color: #b98c66;}
