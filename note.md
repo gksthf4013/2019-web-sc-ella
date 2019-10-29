@@ -79,3 +79,8 @@ event.deltaY = event 안에 있는 deltaY의 휠 움직임에 따른 거리값
 
 event.preventDefault(); = 이벤트의 기본 기능을 막아준다
 ```
+
+## 2019.10.29(화)
+```
+$("#snd")[0] = jquery객체를  JavaScript 객체로 변환한다
+```
