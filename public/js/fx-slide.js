@@ -23,6 +23,7 @@ var slide1 = new FxSlide(obj);
 var FxSlide = (function(){
 	function FxSlide(obj) {
 		this.now = 0;
+		this.isAni = false;
 		this.slides = $(obj.slides);
 		this.slide = this.slides.children();
 		this.prev = obj.prev ? $(obj.prev) : $(".pager-prev");
@@ -40,16 +41,18 @@ var FxSlide = (function(){
 		this.autoplay = obj.autoplay == false ? false : true;
 		this.interval = null;
 		this.arr = [];
-		this.startInit(this); // 객체 생성시 한번만 실행
-		this.init(); // 애니메이션이 종료되면 실행
+		this.startInit(this);	// 객체생성시 한번만 실행
+		this.init();	// 애니메이션이 종료되면 실행
 		if(this.autoplay) this.interval = setInterval(this.ani, this.delay, this);
 	}
 	FxSlide.prototype.startInit = function(obj) {
 		obj.prev.click(function(e){
+			if(obj.isAni)return false;
 			obj.dir = 0;
 			obj.ani(obj);
 		});
 		obj.next.click(function(e){
+			if(obj.isAni)return false;
 			obj.dir = -1;
 			obj.ani(obj);
 		});
@@ -63,15 +66,13 @@ var FxSlide = (function(){
 		}
 		if(obj.pagers) {
 			obj.pager.click(function(){
+				if(obj.isAni)return false;
 				obj.now = $(this).index();
 				obj.pager.removeClass("active");
 				$(this).addClass("active");
-				if(obj.dir == 0) {
-					obj.slides.children().eq(0).html($(obj.slide[obj.now]).clone().html());
-				}
-				else {
-					obj.slides.children().eq(2).html($(obj.slide[obj.now]).clone().html());
-				}
+				// 기존에 셋팅되어 있는 그림을 바꾸는 곳
+				if(obj.dir == 0) obj.slides.children().eq(0).html($(obj.slide[obj.now]).html());
+				else obj.slides.children().eq(2).html($(obj.slide[obj.now]).html());
 				obj.ani(obj, true);
 			});
 		}
@@ -85,8 +86,9 @@ var FxSlide = (function(){
 		for(i in this.arr) this.slides.append($(this.slide[this.arr[i]]).clone());
 		this.slides.css({"width": this.width+"%", "left": -this.tar + "%"});
 	}
-	FxSlide.prototype.ani = function(obj, clickChk) {
-		if(!clickChk) {
+	FxSlide.prototype.ani = function(obj, isClick) {
+		obj.isAni = true;
+		if(!isClick) {
 			if(obj.dir == 0) (obj.now == 0) ? obj.now = obj.len - 1 : obj.now--;
 			else (obj.now == obj.len - 1) ? obj.now = 0 : obj.now++;
 			if(obj.pagers) {
@@ -95,6 +97,7 @@ var FxSlide = (function(){
 			}
 		}
 		obj.slides.stop().animate({"left": (obj.dir * obj.tar * 2) + "%"}, obj.speed, function(){
+			obj.isAni = false;
 			obj.dir = obj.direction;
 			obj.init();
 		});

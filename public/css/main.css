@@ -789,6 +789,7 @@ body {
 	font-family: 'Poppins', sans-serif;
 	opacity: 0;
 	transition: opacity 1s;
+	cursor: pointer;
 }
 
 .main-bans>.pager-prev {
