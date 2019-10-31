@@ -61,10 +61,41 @@ $(".navi-show").mouseleave(function(){
 	});
 });
 
+// fx-slide : 메인 배너
+var mainBanner = new FxSlide({
+	slides: $(".main-ban"), 
+	cnt: 1, 
+	speed: 1000,
+	delay: 4000,
+	pager: $(".pagers")
+});
+var bestBanner = new FxSlide({
+	slides: $(".best-items"), 
+	cnt: 5, 
+	prev: $("#best-prev"),
+	next: $("#best-next"),
+	direction: "toRight",
+	autoplay: false
+});
+var sellerBanner = new FxSlide({
+	slides: $("#seller-slide"), 
+	cnt: 3, 
+	prev: $("#seller-prev"),
+	next: $("#seller-next"),
+});
+var sellerBanner2 = new FxSlide({
+	slides: $("#seller-slide2"), 
+	cnt: 3, 
+	prev: $("#seller-prev2"),
+	next: $("#seller-next2"),
+	direction: "toRight"
+});
+
+
 
 // 배너 - (fade, slide(전체), slide(하나씩), slide(세로))
 // 메인 배너
-(function(){
+/* (function(){
 	var now = 0;
 	var speed = 500;
 	var delay = 3000;
@@ -102,7 +133,7 @@ $(".navi-show").mouseleave(function(){
 		clearInterval(interval);
 		interval = setInterval(ani, delay, "-200%");
 	});
-})();
+})(); */
 
 
 
