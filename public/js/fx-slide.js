@@ -41,18 +41,20 @@ var FxSlide = (function(){
 		this.autoplay = obj.autoplay == false ? false : true;
 		this.interval = null;
 		this.arr = [];
+		if(this.slides.css("position") == "static") this.slides.css({"position": "relative"});
+		this.slides.parent().css({"overflow": "hidden"});
 		this.startInit(this);	// 객체생성시 한번만 실행
 		this.init();	// 애니메이션이 종료되면 실행
 		if(this.autoplay) this.interval = setInterval(this.ani, this.delay, this);
 	}
 	FxSlide.prototype.startInit = function(obj) {
 		obj.prev.click(function(e){
-			if(obj.isAni)return false;
+			if(obj.isAni) return false;
 			obj.dir = 0;
 			obj.ani(obj);
 		});
 		obj.next.click(function(e){
-			if(obj.isAni)return false;
+			if(obj.isAni) return false;
 			obj.dir = -1;
 			obj.ani(obj);
 		});
@@ -66,7 +68,7 @@ var FxSlide = (function(){
 		}
 		if(obj.pagers) {
 			obj.pager.click(function(){
-				if(obj.isAni)return false;
+				if(obj.isAni) return false;
 				obj.now = $(this).index();
 				obj.pager.removeClass("active");
 				$(this).addClass("active");

@@ -1092,6 +1092,14 @@ body {
 	margin-top: 5rem;
 }
 
+.choices>.seller-prds> :not(:first-child) {
+	display: none;
+}
+
+.choice-wrap {
+	overflow: hidden;
+}
+
 .choice-navis {
 	display: flex;
 	justify-content: center;
@@ -1157,10 +1165,15 @@ body {
 	padding: 2rem 0;
 }
 
+.brand-wrap {
+	overflow: hidden;
+}
+
 .brand-items {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+	position: relative;
 }
 
 .brand-item {
@@ -1194,11 +1207,19 @@ body {
 }
 
 .insta-item {
-	flex: 19% 0 0;
+	flex: 20% 0 1;
 }
 
 .insta-bts {
 	margin-top: 2rem;
+}
+
+#insta-prev {
+	transform: translateX(-15px);
+}
+
+#insta-next {
+	transform: translateX(15px);
 }
 
 /* footer */
