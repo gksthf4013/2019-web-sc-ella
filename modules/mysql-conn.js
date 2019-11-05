@@ -9,8 +9,8 @@ const pool = mysql.createPool({
 	waitForConnections: true
 });
 
-/* async await 하기전 */
-/* 
+/* async await 하기 전 */
+/*
 const sqlExec = (sql, sqlVals) => {
 	pool.getConnection((error, connect) => {
 		if(error) console.log(error);
@@ -23,7 +23,6 @@ const sqlExec = (sql, sqlVals) => {
 	});
 }
 */
-
 /* async await 적용 */
 const sqlExec = async (sql, sqlVals) => {
 	try {
