@@ -3,8 +3,7 @@ $(document).ready(getData);
 $("#bt-wr").click(postData);
 $("#bt-up").click(putData);
 
-
-// CRUD
+/* CRUD */
 function getData() {
 	ajax("/rest-ajax", "get", {}, renderData);
 }
@@ -32,7 +31,15 @@ function putData() {
 		$("#bt-up").prop("disabled", true);
 	});
 }
-
+function delData(btn) {
+	if(confirm("정말로 삭제하시겠습니까?")){
+		var id = $(btn).parent().find(".sp-id").text();
+		ajax("/rest-ajax", "delete", {id: id}, function(res) {
+			if(res.code == 200) getData();
+			else alert("삭제에 실패하였습니다.");
+		});
+	}
+}
 
 /* DOM */
 function chgData(btn) {
@@ -41,9 +48,6 @@ function chgData(btn) {
 	$("#id-up").val(id);
 	$("#username-up").prop("disabled", false).val(username);
 	$("#bt-up").prop("disabled", false);
-}
-function revData(btn) {
-
 }
 function renderData(res) {
 	var html = '';
