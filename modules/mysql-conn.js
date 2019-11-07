@@ -6,7 +6,7 @@ const pool = mysql.createPool({
 	password: "000000",
 	database: "ella",
 	connectionLimit: 10,
-	waitForConnections: true
+	waitForConnections: false
 });
 
 /* async await 하기 전 */
@@ -23,6 +23,7 @@ const sqlExec = (sql, sqlVals) => {
 	});
 }
 */
+
 /* async await 적용 */
 const sqlExec = async (sql, sqlVals) => {
 	try {
@@ -32,7 +33,9 @@ const sqlExec = async (sql, sqlVals) => {
 		return result;
 	}
 	catch(error) {
+		connect.release();
 		console.log(error);
+		// throw new Error(error);
 	}
 }
 
