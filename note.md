@@ -84,3 +84,9 @@ event.preventDefault(); = 이벤트의 기본 기능을 막아준다
 ```
 $("#snd")[0] = jquery객체를  JavaScript 객체로 변환한다
 ```
+
+## 2019.11.08(금) 
+```
+MVC, MVP, MVVM 비교 정리 블로그
+https://beomy.tistory.com/43
+```
