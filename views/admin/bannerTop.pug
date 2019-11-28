@@ -1,7 +1,7 @@
 extends ../layout/admin/layout-main.pug
 block content
 	h2 배너 상단 관리
-	h3.my-3 - 배너등록
+	h3.my-3.wr-title - 배너등록
 	form(name="bannerTopForm" action="/admin/banner/top" method="post" enctype="multipart/form-data")
 		table.table
 			tr
@@ -43,7 +43,7 @@ block content
 						img.w-100(src=`/uploads/1911/${list.src}`)
 				.p-2= list.title
 				.p-2
-					button.btn-sm.btn-primary.mr-2 수정
+					button.btn-sm.btn-primary.mr-2(onclick=`chgData(${list.id})`) 수정
 					button.btn-sm.btn-danger(onclick=`confirm('정말로 삭제하시겠습니까?') ? deleteList(${list.id}) : false`) 삭제
 block js
 	script(src="/js/banner.js")
