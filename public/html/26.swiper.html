@@ -8,13 +8,13 @@
 	<title>swiper</title>
 	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
 	<style>
-		.swiper-container {
+	.swiper-container {
 			width: 600px;
 			height: 300px;
-		}
-		.swipe-slide {
-			width: calc()
-		}
+	}
+	.swiper-slide {
+	background: #ccc;
+	}
 	</style>
 </head>
 
@@ -25,21 +25,20 @@
 			<div class="swiper-slide">Slide 2</div>
 			<div class="swiper-slide">Slide 3</div>
 		</div>
-		<div class="swiper-pagination"></div>
 		<div class="swiper-button-prev"></div>
 		<div class="swiper-button-next"></div>
 	</div>
 	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 	<script>
-		var mySwiper = new Swiper('.swiper-container', {
-			direction: 'horizontal',
-			loop: true,
-			// Navigation arrows
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-		})
+	var mySwiper = new Swiper ('.swiper-container', {
+		direction: 'horizontal',
+		loop: true,
+		// Navigation arrows
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+	})
 	</script>
 </body>
 
