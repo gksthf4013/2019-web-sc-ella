@@ -20,9 +20,7 @@ const util = require(path.join(__dirname, "modules/util"));
 app.locals.pretty = true;
 app.use("/", express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-	extended: false
-}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
@@ -39,12 +37,8 @@ app.use(methodOverride(function (req, res) {
 }));
 
 /* morgan 설정 */
-var accessLogStream = fs.createWriteStream(path.join(__dirname, 'log/access.log'), {
-	flags: 'a'
-});
-app.use(morgan('combined', {
-	stream: accessLogStream
-}));
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'log/access.log'), {flags: 'a'});
+app.use(morgan('combined', { stream: accessLogStream }));
 
 
 /* router - ella */
@@ -68,17 +62,26 @@ app.use("/rest-seq", seqRouter);
 */
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-	next(createError(404));
+app.use(function(req, res, next) {
+  next(createError(404));
 });
 
 // error handler
-app.use(function (err, req, res, next) {
-	// set locals, only providing error in development
-	res.locals.message = err.message;
-	res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-	// render the error page
-	res.status(err.status || 500);
-	res.render('error');
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
+
+
+
+
+
+
+
+
+
