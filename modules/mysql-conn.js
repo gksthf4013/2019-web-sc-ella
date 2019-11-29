@@ -1,10 +1,13 @@
 const mysql = require("mysql2/promise");
 const pool = mysql.createPool({
-	host: "localhost",
+	host: "db.gksthf4013.gabia.io",
 	port: 3306,
-	user: "ella",
-	password: "000000",
-	database: "ella",
+	user: "gksthf4013",
+	// user: "ella",
+	password: "cnsqhrdkfk1004!",
+	// password: "000000",
+	database: "dbgksthf4013",
+	// database: "ella",
 	connectionLimit: 10,
 	waitForConnections: false
 });
